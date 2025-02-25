@@ -5,7 +5,6 @@ import type { Configuration } from "webpack";
 const nextConfig: NextConfig = {
   webpack: (config: Configuration, { isServer }) => {
     if (config.module && config.module.rules) {
-      console.log("Webpack config rules:", config.module.rules);
       config.module.rules.push({
         test: /\.(glb|gltf)$/,
         use: [
@@ -20,7 +19,6 @@ const nextConfig: NextConfig = {
           },
         ],
       });
-      console.log("Webpack config rules after:", config.module.rules);
     }
 
     return config;
